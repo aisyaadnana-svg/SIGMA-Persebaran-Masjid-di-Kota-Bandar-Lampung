@@ -1,0 +1,662 @@
+{
+  "type": "FeatureCollection",
+  "name": "Persebaran Masjid Kota Bandar Lampung",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2535691,
+          -5.4291028
+        ]
+      },
+      "properties": {
+        "id": 1,
+        "nama_masjid": "Masjid Al-Oesman Rasuna Said",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "TELUK BETUNG UTARA",
+        "alamat": "Jl. Rasuna Said No.40, Pengajaran, Kec. Tlk. Betung Utara, Kota Bandar Lampung, Lampung 35212",
+        "tahun_berdiri": 2025,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 600,
+        "luas_bangunan": 400,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4291028,
+        "longitude": 105.2535691
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2600102,
+          -5.429126
+        ]
+      },
+      "properties": {
+        "id": 2,
+        "nama_masjid": "Masjid Al-Furqon",
+        "jenis_masjid": "MASJID AGUNG",
+        "kecamatan": "TELUK BETUNG UTARA",
+        "alamat": "Jl. Diponegoro, Gulak Galik, Kec. Tlk. Betung Utara, Kota Bandar Lampung, Lampung 35212",
+        "tahun_berdiri": 1961,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 60850,
+        "luas_bangunan": 7000,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.429126,
+        "longitude": 105.2600102
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2574586,
+          -5.4535915
+        ]
+      },
+      "properties": {
+        "id": 3,
+        "nama_masjid": "Masjid Jami' As Syuhada",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "TELUK BETUNG TIMUR",
+        "alamat": "Jl. RE Martadinata, Kota Karang, Kec. Telukbetung Timur, Kota Bandar Lampung, Lampung",
+        "tahun_berdiri": 2019,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 796,
+        "luas_bangunan": 196,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4535915,
+        "longitude": 105.2574586
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2515643,
+          -5.4534844
+        ]
+      },
+      "properties": {
+        "id": 4,
+        "nama_masjid": "Masjid Nurul Muttaqien",
+        "jenis_masjid": "MASJID DI TEMPAT PUBLIK",
+        "kecamatan": "TELUK BETUNG BARAT",
+        "alamat": "Jl.Banten Kp.Sawah Keruh Kelurahan Bakung, Kec. Tlk. Betung Bar., Kota Bandar Lampung, Lampung 35223",
+        "tahun_berdiri": 1996,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 150,
+        "luas_bangunan": 120,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4534844,
+        "longitude": 105.2515643
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.3239603,
+          -5.4707517
+        ]
+      },
+      "properties": {
+        "id": 5,
+        "nama_masjid": "Masjid Nurul Mustaqim",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "PANJANG",
+        "alamat": "Jl. Soekarno Hatta Kampung kebun Sayur, Panjang Utara, Kec. Panjang, Kota Bandar Lampung, Lampung 35241",
+        "tahun_berdiri": 1980,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 300,
+        "luas_bangunan": 300,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4707517,
+        "longitude": 105.3239603
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.3180908,
+          -5.4394403
+        ]
+      },
+      "properties": {
+        "id": 6,
+        "nama_masjid": "Masjid Nurul Huda",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "PANJANG",
+        "alamat": "Jl. Insinyur Sutami, Way Laga, Kec. Panjang, Kota Bandar Lampung, Lampung 35122",
+        "tahun_berdiri": 1999,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 120,
+        "luas_bangunan": 48,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4394403,
+        "longitude": 105.3180908
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2375074,
+          -5.3567009
+        ]
+      },
+      "properties": {
+        "id": 7,
+        "nama_masjid": "Masjid Islamic Cantre",
+        "jenis_masjid": "MASJID BESAR",
+        "kecamatan": "RAJABASA",
+        "alamat": "Jl. Soekarno Hatta No.8, Rajabasa Raya, Kec. Rajabasa, Kota Bandar Lampung, Lampung 35142",
+        "tahun_berdiri": 1991,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 5000,
+        "luas_bangunan": 2475,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.3567009,
+        "longitude": 105.2375074
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2427576,
+          -5.3677717
+        ]
+      },
+      "properties": {
+        "id": 8,
+        "nama_masjid": "Masjid Al - Wasi'i",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "RAJABASA",
+        "alamat": "JL. Sumantri Brojonegoro, Gedong Meneng, Rajabasa, Bandar Lampung City, Lampung 35141",
+        "tahun_berdiri": 1986,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 6000,
+        "luas_bangunan": 250,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.3677717,
+        "longitude": 105.2427576
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2744885,
+          -5.3808034
+        ]
+      },
+      "properties": {
+        "id": 9,
+        "nama_masjid": "Masjid Ad-Dua",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "WAY HALIM",
+        "alamat": "Jalan Sultan Agung, Puri Way Halim, Perumnas Way Halim, Way Halim, Perumnas Way Halim, Kec. Way Halim, Kota Bandar Lampung, Lampung 35132",
+        "tahun_berdiri": 1999,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 4000,
+        "luas_bangunan": 144,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.3808034,
+        "longitude": 105.2744885
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2753365,
+          -5.3749488
+        ]
+      },
+      "properties": {
+        "id": 10,
+        "nama_masjid": "Masjid An-Nur",
+        "jenis_masjid": "MASJID DI TEMPAT PUBLIK",
+        "kecamatan": "WAY HALIM",
+        "alamat": "jl. kopi utara 2 dan 3, Perumnas Way Halim, Kec. Way Halim, Kota Bandar Lampung, Lampung 35132",
+        "tahun_berdiri": 1998,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 125,
+        "luas_bangunan": 80,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.3749488,
+        "longitude": 105.2753365
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2087895,
+          -5.3933849
+        ]
+      },
+      "properties": {
+        "id": 11,
+        "nama_masjid": "Masjid Baiturrahman",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "KEMILING",
+        "alamat": "Jl. Akasia Blk. A5 No.43, Beringin Raya, Kec. Kemiling, Kota Bandar Lampung, Lampung 35158",
+        "tahun_berdiri": 2010,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 150,
+        "luas_bangunan": 120,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.3933849,
+        "longitude": 105.2087895
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2103479,
+          -5.3810379
+        ]
+      },
+      "properties": {
+        "id": 12,
+        "nama_masjid": "Masjid Darul Muttaqien",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "KEMILING",
+        "alamat": "Jl. Terong, Kemiling Permai, Kec. Kemiling, Kota Bandar Lampung, Lampung 35151",
+        "tahun_berdiri": 2004,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 130,
+        "luas_bangunan": 100,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.3810379,
+        "longitude": 105.2103479
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2587347,
+          -5.3829012
+        ]
+      },
+      "properties": {
+        "id": 13,
+        "nama_masjid": "Masjid Al-Hikmah",
+        "jenis_masjid": "MASJID DI TEMPAT PUBLIK",
+        "kecamatan": "KEDATON",
+        "alamat": "Jl. Pagar Alam No.2, Kedaton, Kec. Kedaton, Kota Bandar Lampung, Lampung 35132",
+        "tahun_berdiri": 1999,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 250,
+        "luas_bangunan": 80,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.3829012,
+        "longitude": 105.2587347
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2601103,
+          -5.402183
+        ]
+      },
+      "properties": {
+        "id": 14,
+        "nama_masjid": "Masjid Babussalam",
+        "jenis_masjid": "MASJID DI TEMPAT PUBLIK",
+        "kecamatan": "KEDATON",
+        "alamat": "Jl. Teuku Umar No.130, Penengahan, Kec. Kedaton, Kota Bandar Lampung, Lampung 35121",
+        "tahun_berdiri": 2003,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 125,
+        "luas_bangunan": 85,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.402183,
+        "longitude": 105.2601103
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2442135,
+          -5.391974
+        ]
+      },
+      "properties": {
+        "id": 15,
+        "nama_masjid": "Masjid Al-Musa",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "TANJUNG KARANG BARAT",
+        "alamat": "Jl. Mata Intan No.153, RT.05/RW.02, Segala Mider, Kec. Tj. Karang Bar., Kota Bandar Lampung, Lampung 35152",
+        "tahun_berdiri": 2012,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 800,
+        "luas_bangunan": 289,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.391974,
+        "longitude": 105.2442135
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2503389,
+          -5.3883948
+        ]
+      },
+      "properties": {
+        "id": 16,
+        "nama_masjid": "Masjid Al-Abbas",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "TANJUNG KARANG BARAT",
+        "alamat": "Jl. Panglima Polim Gg. Mawar Putih No.1, Segala Mider, Kec. Tj. Karang Bar., Kota Bandar Lampung, Lampung 35123",
+        "tahun_berdiri": 2003,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 860,
+        "luas_bangunan": 347,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.3883948,
+        "longitude": 105.2503389
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2651559,
+          -5.4241154
+        ]
+      },
+      "properties": {
+        "id": 17,
+        "nama_masjid": "Masjid Al-Amin",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "TANJUNG KARANG TIMUR",
+        "alamat": "Jl. Cendana, Rw. Laut, Kec. Tanjungkarang Timur, Kota Bandar Lampung, Lampung 35213",
+        "tahun_berdiri": 2000,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 300,
+        "luas_bangunan": 125,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4241154,
+        "longitude": 105.2651559
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.3218847,
+          -5.4135768
+        ]
+      },
+      "properties": {
+        "id": 18,
+        "nama_masjid": "Masjid Al Barokah",
+        "jenis_masjid": "MASJID DI TEMPAT PUBLIK",
+        "kecamatan": "TANJUNG KARANG TIMUR",
+        "alamat": "Jl. P. Tirtayasa, Campang Raya, Kec. Tanjungkarang Timur, Kota Bandar Lampung, Lampung 35244",
+        "tahun_berdiri": 1989,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 200,
+        "luas_bangunan": 100,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4135768,
+        "longitude": 105.3218847
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2518008,
+          -5.4218885
+        ]
+      },
+      "properties": {
+        "id": 19,
+        "nama_masjid": "Masjid Jami' Asy Syuhada",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "TANJUNG KARANG PUSAT",
+        "alamat": "Jl. Wolter Monginsidi No.17 C, Durian Payung, Kec. Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35214",
+        "tahun_berdiri": 2005,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 796,
+        "luas_bangunan": 196,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4218885,
+        "longitude": 105.2518008
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2735458,
+          -5.4071754
+        ]
+      },
+      "properties": {
+        "id": 20,
+        "nama_masjid": "Masjid Al-Hikmah",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "SUKARAME",
+        "alamat": "Jl. Nusa Indah No.68, Way Dadi, Kec. Sukarame, Kota Bandar Lampung, Lampung 35132",
+        "tahun_berdiri": 1993,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 414,
+        "luas_bangunan": 620,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4071754,
+        "longitude": 105.2735458
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2919605,
+          -5.3864932
+        ]
+      },
+      "properties": {
+        "id": 21,
+        "nama_masjid": "Masjid Al-Huda",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "SUKARAME",
+        "alamat": "Sukarame I, Sukarame, Way Dadi, Kec. Sukarame, Kota Bandar Lampung, Lampung 35133",
+        "tahun_berdiri": 1980,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 1250,
+        "luas_bangunan": 400,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.3864932,
+        "longitude": 105.2919605
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.3037779,
+          -5.3807044
+        ]
+      },
+      "properties": {
+        "id": 22,
+        "nama_masjid": "Masjid Safinatul 'Ulum",
+        "jenis_masjid": "MASJID DI TEMPAT PUBLIK",
+        "kecamatan": "SUKARAME",
+        "alamat": "Jl. Endro Suratmin, Sukarame, Kec. Sukarame, Kota Bandar Lampung, Lampung 35133",
+        "tahun_berdiri": 2021,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 2700,
+        "luas_bangunan": 2700,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.3807044,
+        "longitude": 105.3037779
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2603796,
+          -5.4209579
+        ]
+      },
+      "properties": {
+        "id": 23,
+        "nama_masjid": "Masjid Raya Al- Bakrie",
+        "jenis_masjid": "MASJID RAYA",
+        "kecamatan": "ENGGAL",
+        "alamat": "Jl. Jend. Sudirman No. 59  Enggal  Bandar Lampung , Lampung 35127",
+        "tahun_berdiri": 2025,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 22000,
+        "luas_bangunan": 10240,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4209579,
+        "longitude": 105.2603796
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2587459,
+          -5.4018408
+        ]
+      },
+      "properties": {
+        "id": 24,
+        "nama_masjid": "Masjid Al-Yaqin",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "ENGGAL",
+        "alamat": "Gg. Masjid No.11, Tj. Karang, Engal, Kota Bandar Lampung, Lampung 35127",
+        "tahun_berdiri": 1912,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 1110,
+        "luas_bangunan": 1110,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4018408,
+        "longitude": 105.2587459
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.2633907,
+          -5.4501441
+        ]
+      },
+      "properties": {
+        "id": 25,
+        "nama_masjid": "Masjid Al-Anwar",
+        "jenis_masjid": "MASJID JAMI",
+        "kecamatan": "TELUK BETUNG SELATAN",
+        "alamat": "Jalan Laksamana Malahayati No. 100, Kangkung, Teluk Betung Selatan, Pesawahan, Kec. Telukbetung Selatan, Kota Bandar Lampung, Lampung",
+        "tahun_berdiri": 1839,
+        "status_kepemilikan": "WAKAF",
+        "luas_tanah": 5000,
+        "luas_bangunan": 625,
+        "kapasitas": NaN,
+        "fasilitas": NaN,
+        "foto": NaN,
+        "latitude": -5.4501441,
+        "longitude": 105.2633907
+      }
+    }
+  ]
+}

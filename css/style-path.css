@@ -1,0 +1,410 @@
+/* =============================================
+   SIGMA – style-patch.css v3
+   Fix: overflow putih kanan, SIGI clean
+   ============================================= */
+
+/* ── Beranda section ── */
+#section-beranda {
+  display:none;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+#section-beranda.active { display:flex; }
+
+/* ── Landing hero: full tinggi, biru bersih ── */
+.landing-container {
+  width:100%;
+  height:100%;
+  box-sizing:border-box;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  padding:60px 80px;
+  gap:60px;
+  position:relative;
+  overflow:hidden;
+  /* Background Masjid Al Bakrie */
+  background-image:
+    linear-gradient(135deg,
+      rgba(4,12,40,.91)  0%,
+      rgba(10,26,74,.86) 40%,
+      rgba(15,45,110,.80) 70%,
+      rgba(20,50,130,.74) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Masjid_Al_Bakrie_Bandar_Lampung.jpg/1280px-Masjid_Al_Bakrie_Bandar_Lampung.jpg');
+  background-size:cover;
+  background-position:center 30%;
+  background-attachment:fixed;
+}
+.landing-container::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:radial-gradient(circle,rgba(96,165,250,.06) 1px,transparent 1px);
+  background-size:32px 32px;
+  pointer-events:none;
+  z-index:0;
+}
+/* agar konten hero di atas overlay */
+.landing-left,
+.landing-right { position:relative; z-index:1; }
+
+/* ── Stats mini di dalam hero ── */
+.landing-stats {
+  display:flex;
+  gap:0;
+  border-top:1px solid rgba(255,255,255,.12);
+  padding-top:22px;
+  margin-top:4px;
+}
+.stat-mini {
+  text-align:center;
+  padding:0 24px;
+  border-right:1px solid rgba(255,255,255,.1);
+}
+.stat-mini:first-child { padding-left:0; }
+.stat-mini:last-child  { border-right:none; }
+.stat-mini-num   { display:block; font-size:38px; font-weight:800; color:#60a5fa; line-height:1; margin-bottom:3px; }
+.stat-mini-label { font-size:10px; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:1.5px; font-weight:500; }
+
+/* ── Dashboard stat cards (scroll ke bawah hero) ── */
+.dashboard-stats {
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  display:flex;
+  gap:18px;
+  padding:28px 80px 0;
+  background:#f0f4f8;
+  flex-wrap:wrap;
+  flex-shrink:0;
+}
+.stat-card {
+  flex:1; min-width:170px;
+  background:white; border-radius:14px;
+  padding:20px 22px;
+  display:flex; align-items:center; gap:14px;
+  box-shadow:0 4px 18px rgba(0,0,0,.07);
+  transition:transform .2s,box-shadow .2s;
+}
+.stat-card:hover { transform:translateY(-3px); box-shadow:0 8px 26px rgba(0,0,0,.12); }
+.stat-icon {
+  width:50px; height:50px; border-radius:13px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:21px; color:white; flex-shrink:0;
+}
+.stat-info { display:flex; flex-direction:column; }
+.stat-num   { font-size:28px; font-weight:800; color:#0f2557; line-height:1; }
+.stat-label { font-size:12.5px; font-weight:600; color:#334155; margin-top:2px; }
+.stat-sub   { font-size:10.5px; color:#94a3b8; text-transform:uppercase; letter-spacing:.8px; }
+
+/* ── Banner bawah ── */
+.dashboard-banner {
+  width:100%; max-width:100%;
+  box-sizing:border-box;
+  padding:28px 80px;
+  background:linear-gradient(135deg,#0f2557,#1a3a8f);
+  color:white; position:relative; overflow:hidden;
+  flex-shrink:0;
+  margin-top:24px;
+}
+.dashboard-banner::before {
+  content:''; position:absolute; inset:0;
+  background-image:radial-gradient(circle,rgba(96,165,250,.08) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.banner-text          { position:relative; z-index:1; }
+.banner-text h2       { font-size:21px; font-weight:700; margin-bottom:7px; line-height:1.3; }
+.banner-text p        { font-size:13px; opacity:.7; }
+
+/* ── Responsive ── */
+@media (max-width:1100px) {
+  .landing-container { padding:40px 48px; gap:40px; }
+  .dashboard-stats   { padding:24px 48px 0; }
+  .dashboard-banner  { padding:24px 48px; }
+}
+@media (max-width:768px) {
+  .landing-container { flex-direction:column; padding:28px 22px; gap:28px; background-attachment:scroll; min-height:auto; }
+  .landing-right     { display:none; }
+  .dashboard-stats   { padding:16px 16px 0; gap:10px; }
+  .dashboard-banner  { padding:22px 18px; margin-top:16px; }
+  .stat-card         { min-width:130px; padding:14px; }
+}
+
+/* =============================================
+   PROFIL PAGE — redesign
+   ============================================= */
+
+#section-profil {
+  display:none;
+  flex-direction:column;
+  width:100%; height:100%;
+  overflow-y:auto; overflow-x:hidden;
+  background:#f0f4f8;
+}
+#section-profil.active { display:flex; }
+
+.profil-page {
+  width:100%; min-height:100%;
+  display:flex; flex-direction:column;
+}
+
+/* ── Hero profil ── */
+.profil-hero {
+  position:relative;
+  background:linear-gradient(135deg,#071030 0%,#0f2557 50%,#1a3a8f 100%);
+  padding:40px 60px 36px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.profil-hero-bg {
+  position:absolute; inset:0;
+  background-image:radial-gradient(circle,rgba(96,165,250,.07) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.profil-hero-bg::after {
+  content:'';
+  position:absolute; top:-60px; right:80px;
+  width:400px; height:400px;
+  background:radial-gradient(circle,rgba(59,130,246,.12) 0%,transparent 65%);
+}
+.profil-hero-content {
+  position:relative; z-index:1;
+  display:flex; align-items:center; gap:32px;
+}
+
+/* foto profil */
+.profil-foto-wrap {
+  flex-shrink:0;
+  width:110px; height:110px;
+  border-radius:50%;
+  border:4px solid rgba(96,165,250,.5);
+  box-shadow:0 0 0 6px rgba(59,130,246,.15),0 12px 36px rgba(0,0,0,.3);
+  overflow:hidden;
+  background:#1e3a8a;
+  position:relative;
+}
+.profil-foto {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center top;
+  display:block;
+}
+.profil-foto-fallback {
+  display:none; /* tampil kalau foto gagal */
+  width:100%; height:100%;
+  align-items:center; justify-content:center;
+  font-size:44px; color:#60a5fa;
+}
+
+.profil-hero-info { color:white; }
+.profil-badge-univ {
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(96,165,250,.15);
+  border:1px solid rgba(96,165,250,.3);
+  padding:5px 14px; border-radius:50px;
+  font-size:12px; color:#93c5fd; margin-bottom:10px;
+  font-family:'Poppins',sans-serif;
+}
+.profil-nama-hero {
+  font-size:26px; font-weight:800;
+  color:white; margin-bottom:4px; line-height:1.2;
+}
+.profil-npm-hero { font-size:13px; color:rgba(255,255,255,.6); margin-bottom:14px; }
+.profil-sosmed { display:flex; gap:10px; flex-wrap:wrap; }
+.profil-sosmed-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.85);
+  padding:6px 14px; border-radius:8px;
+  font-size:12px; font-weight:500;
+  font-family:'Poppins',sans-serif;
+  text-decoration:none; transition:all .2s;
+}
+.profil-sosmed-btn:hover { background:rgba(255,255,255,.18); }
+.profil-sosmed-btn.lokasi { cursor:default; }
+
+/* ── Body 3 kolom ── */
+.profil-body {
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:20px;
+  padding:28px 60px 36px;
+  flex:1;
+  align-items:start;
+}
+
+/* ── Card profil baru ── */
+.profil-card-new {
+  background:white;
+  border-radius:16px;
+  padding:22px 24px;
+  box-shadow:0 4px 20px rgba(0,0,0,.07);
+  margin-bottom:18px;
+}
+.profil-card-new:last-child { margin-bottom:0; }
+
+.pcard-header {
+  display:flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:700;
+  color:#0f2557; margin-bottom:14px;
+  padding-bottom:10px;
+  border-bottom:2px solid #f1f5f9;
+}
+.pcard-header i { color:#3b82f6; }
+.pcard-text {
+  font-size:13px; color:#475569; line-height:1.8;
+  margin-bottom:16px;
+}
+.pcard-divider { height:1px; background:#f1f5f9; margin:16px 0; }
+.pcard-list {
+  list-style:none; display:flex; flex-direction:column; gap:9px;
+}
+.pcard-list li {
+  display:flex; align-items:flex-start; gap:9px;
+  font-size:13px; color:#374151; line-height:1.5;
+}
+.pcard-list li i { color:#10b981; margin-top:2px; flex-shrink:0; }
+
+/* ── Foto masjid grid ── */
+.masjid-foto-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:12px;
+}
+.masjid-foto-item {
+  border-radius:10px; overflow:hidden;
+  position:relative;
+}
+.masjid-foto-item img {
+  width:100%; height:100px;
+  object-fit:cover; display:block;
+  transition:transform .3s;
+}
+.masjid-foto-item:hover img { transform:scale(1.05); }
+.masjid-foto-item span {
+  display:block; text-align:center;
+  font-size:10px; font-weight:600;
+  color:#475569; padding:6px 4px 0;
+}
+
+/* ── Teknologi grid baru ── */
+.tech-grid-new {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
+}
+.tech-item-new {
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  padding:14px 8px; background:#f8fafc; border-radius:10px;
+  font-size:11px; color:#374151; font-weight:600;
+  transition:all .2s; cursor:default;
+}
+.tech-item-new:hover { background:#eff6ff; transform:translateY(-2px); }
+.tech-item-new i { font-size:26px; }
+
+/* ── Sumber data ── */
+.sumber-list { display:flex; flex-direction:column; gap:14px; }
+.sumber-item { display:flex; align-items:flex-start; gap:12px; }
+.sumber-icon {
+  width:40px; height:40px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  color:white; font-size:16px; flex-shrink:0;
+}
+.sumber-info { flex:1; }
+.sumber-nama { font-size:12.5px; font-weight:700; color:#0f2557; margin-bottom:2px; }
+.sumber-desc { font-size:11.5px; color:#64748b; line-height:1.6; margin-bottom:3px; }
+.sumber-link {
+  font-size:11px; color:#3b82f6; font-weight:600;
+  text-decoration:none;
+}
+.sumber-link:hover { text-decoration:underline; }
+
+/* ── FIX: pin masjid di hero (pastikan tampil) ── */
+.landing-right {
+  flex: 0 0 320px;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:2;
+}
+.mascot-container {
+  position:relative; width:260px; height:260px;
+  display:flex; align-items:center; justify-content:center;
+}
+.mascot-pin {
+  width:130px; height:170px;
+  display:flex; flex-direction:column; align-items:center;
+  filter:drop-shadow(0 14px 36px rgba(59,130,246,.55));
+  animation:pinFloat 4s ease-in-out infinite;
+  position:relative; z-index:2;
+}
+.mascot-pin-head {
+  width:110px; height:110px;
+  background:linear-gradient(135deg,#60a5fa 0%,#3b82f6 50%,#1d4ed8 100%);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 28px rgba(59,130,246,.5),inset 0 2px 4px rgba(255,255,255,.2);
+}
+.mascot-pin-head i { font-size:48px; color:white; }
+.mascot-pin-tail {
+  width:0; height:0;
+  border-left:20px solid transparent;
+  border-right:20px solid transparent;
+  border-top:38px solid #1d4ed8;
+  margin-top:-2px;
+}
+.mascot-ring {
+  position:absolute; border-radius:50%;
+  animation:pulseRing 2.5s ease-out infinite;
+}
+.ring-1 { width:170px; height:170px; border:2px solid rgba(96,165,250,.35); animation-delay:0s; }
+.ring-2 { width:218px; height:218px; border:1.5px solid rgba(96,165,250,.2); animation-delay:.6s; }
+.ring-3 { width:260px; height:260px; border:1px solid rgba(96,165,250,.1); animation-delay:1.2s; }
+@keyframes pulseRing { 0%{transform:scale(.88);opacity:1} 100%{transform:scale(1.04);opacity:0} }
+@keyframes pinFloat  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-13px)} }
+
+/* ── Responsive profil ── */
+@media (max-width:1100px) {
+  .profil-body { grid-template-columns:1fr 1fr; padding:22px 32px 28px; }
+  .profil-hero { padding:32px 40px; }
+}
+@media (max-width:768px) {
+  .profil-body { grid-template-columns:1fr; padding:16px; }
+  .profil-hero { padding:24px 20px; }
+  .profil-hero-content { flex-direction:column; text-align:center; }
+  .profil-sosmed { justify-content:center; }
+  .landing-right { display:none !important; }
+}
+
+/* ── FIX UTAMA: main-content harus flex column ── */
+.main-content {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  min-height:0;
+}
+
+/* section default hidden, active = flex column + scroll */
+.section {
+  display:none;
+  flex-direction:column;
+  width:100%;
+  flex:1;
+  min-height:0;
+}
+.section.active { display:flex; }
+
+/* Override khusus peta — tetap pakai flex row */
+#section-peta.active {
+  flex-direction:row;
+}
+
+/* Override profil — scroll */
+#section-profil.active {
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+/* Override daftar — scroll */
+#section-daftar.active {
+  overflow-y:auto;
+  overflow-x:hidden;
+}

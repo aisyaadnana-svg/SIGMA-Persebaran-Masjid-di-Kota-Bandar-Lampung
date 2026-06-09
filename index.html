@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIGMA – Sistem Informasi Geografis Masjid Kota Bandar Lampung</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/style-patch.css"/>
+  <link rel="stylesheet" href="css/profil.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-logo"><i class="fas fa-mosque"></i></div>
+      <div class="navbar-title">
+        <span class="brand-sigma">SIGMA</span>
+        <span class="brand-sub">Sistem Informasi Geografis Masjid</span>
+      </div>
+    </div>
+    <div class="navbar-menu">
+      <a href="#" class="nav-link active" onclick="showSection('beranda');return false;"><i class="fas fa-home"></i> Beranda</a>
+      <a href="#" class="nav-link" onclick="showSection('peta');return false;"><i class="fas fa-map"></i> Peta</a>
+      <a href="#" class="nav-link" onclick="showSection('daftar');return false;"><i class="fas fa-list"></i> Data Masjid</a>
+      <a href="#" class="nav-link" onclick="showSection('profil');return false;"><i class="fas fa-user"></i> Profil</a>
+    </div>
+    <div class="navbar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- ===== BERANDA ===== -->
+    <section id="section-beranda" class="section active">
+
+      <div class="landing-container">
+        <!-- kiri -->
+        <div class="landing-left">
+          <div class="landing-badge"><i class="fas fa-map-marker-alt"></i> Kota Bandar Lampung</div>
+          <h1 class="landing-title"><span class="title-sigma">SIGMA</span></h1>
+          <p class="landing-subtitle">Sistem Informasi Geografis Masjid<br>Kota Bandar Lampung</p>
+          <p class="landing-desc">Platform pemetaan digital yang menampilkan persebaran lokasi masjid di Kota Bandar Lampung secara interaktif, akurat, dan mudah diakses.</p>
+          <div class="landing-buttons">
+            <button class="btn-primary" onclick="showSection('peta')"><i class="fas fa-map"></i> Masuk ke Peta</button>
+            <button class="btn-secondary" onclick="showSection('daftar')"><i class="fas fa-list"></i> Lihat Data Masjid</button>
+          </div>
+          <div class="jadwal-sholat">
+            <div class="jadwal-header"><i class="fas fa-clock"></i><span id="jadwal-tanggal">Memuat jadwal sholat...</span></div>
+            <div class="jadwal-grid">
+              <div class="jadwal-item"><span class="jadwal-nama">Subuh</span><span class="jadwal-waktu" id="j-subuh">--:--</span></div>
+              <div class="jadwal-item"><span class="jadwal-nama">Dzuhur</span><span class="jadwal-waktu" id="j-dzuhur">--:--</span></div>
+              <div class="jadwal-item"><span class="jadwal-nama">Ashar</span><span class="jadwal-waktu" id="j-ashar">--:--</span></div>
+              <div class="jadwal-item"><span class="jadwal-nama">Maghrib</span><span class="jadwal-waktu" id="j-maghrib">--:--</span></div>
+              <div class="jadwal-item"><span class="jadwal-nama">Isya</span><span class="jadwal-waktu" id="j-isya">--:--</span></div>
+            </div>
+          </div>
+          <div class="landing-stats">
+            <div class="stat-mini"><span class="stat-mini-num">25</span><span class="stat-mini-label">Masjid</span></div>
+            <div class="stat-mini"><span class="stat-mini-num">14</span><span class="stat-mini-label">Kecamatan</span></div>
+            <div class="stat-mini"><span class="stat-mini-num">5</span><span class="stat-mini-label">Kategori</span></div>
+          </div>
+        </div>
+
+        <!-- kanan: pin masjid -->
+        <div class="landing-right">
+          <div class="mascot-container">
+            <div class="mascot-pin">
+              <div class="mascot-pin-head"><i class="fas fa-mosque"></i></div>
+              <div class="mascot-pin-tail"></div>
+            </div>
+            <div class="mascot-ring ring-1"></div>
+            <div class="mascot-ring ring-2"></div>
+            <div class="mascot-ring ring-3"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== PETA ===== -->
+    <section id="section-peta" class="section">
+      <div class="peta-container">
+        <div class="sidebar" id="sidebar">
+          <div class="sidebar-header"><h3><i class="fas fa-filter"></i> Filter &amp; Pencarian</h3></div>
+          <div class="sidebar-section">
+            <label class="sidebar-label">Cari Masjid</label>
+            <div class="search-box"><i class="fas fa-search"></i><input type="text" id="search-input" placeholder="Nama masjid..." oninput="filterMarkers()"/></div>
+          </div>
+          <div class="sidebar-section">
+            <label class="sidebar-label">Filter Kategori</label>
+            <div class="filter-options" id="filter-kategori">
+              <label class="filter-item"><input type="checkbox" value="semua" checked onchange="filterMarkers()"/><span class="filter-dot" style="background:#374151"></span> Semua</label>
+              <label class="filter-item"><input type="checkbox" value="MASJID RAYA" onchange="filterMarkers()"/><span class="filter-dot" style="background:#1a3a6b"></span> Masjid Raya</label>
+              <label class="filter-item"><input type="checkbox" value="MASJID AGUNG" onchange="filterMarkers()"/><span class="filter-dot" style="background:#7b2d8b"></span> Masjid Agung</label>
+              <label class="filter-item"><input type="checkbox" value="MASJID BESAR" onchange="filterMarkers()"/><span class="filter-dot" style="background:#e67e22"></span> Masjid Besar</label>
+              <label class="filter-item"><input type="checkbox" value="MASJID JAMI" onchange="filterMarkers()"/><span class="filter-dot" style="background:#27ae60"></span> Masjid Jami</label>
+              <label class="filter-item"><input type="checkbox" value="MASJID DI TEMPAT PUBLIK" onchange="filterMarkers()"/><span class="filter-dot" style="background:#e74c3c"></span> Masjid Publik</label>
+            </div>
+          </div>
+          <div class="sidebar-section">
+            <label class="sidebar-label">Filter Kecamatan</label>
+            <select id="filter-kecamatan" onchange="filterMarkers()" class="select-input"><option value="semua">Semua Kecamatan</option></select>
+          </div>
+          <div class="sidebar-section">
+            <label class="sidebar-label">Masjid Terdekat</label>
+            <button class="btn-locate" onclick="findNearest()"><i class="fas fa-location-arrow"></i> Temukan Masjid Terdekat</button>
+          </div>
+          <div class="sidebar-section">
+            <label class="sidebar-label">Hasil: <span id="hasil-count">25</span> masjid</label>
+            <div class="hasil-list" id="hasil-list"></div>
+          </div>
+        </div>
+        <div id="map"></div>
+      </div>
+    </section>
+
+    <!-- ===== DAFTAR ===== -->
+    <section id="section-daftar" class="section">
+      <div class="daftar-container">
+        <div class="daftar-header">
+          <h2><i class="fas fa-mosque"></i> Data Masjid Kota Bandar Lampung</h2>
+          <div class="daftar-search"><i class="fas fa-search"></i><input type="text" id="daftar-search" placeholder="Cari nama masjid..." oninput="filterDaftar()"/></div>
+        </div>
+        <div class="daftar-filter">
+          <select id="daftar-filter-jenis" onchange="filterDaftar()" class="select-input">
+            <option value="semua">Semua Kategori</option>
+            <option value="MASJID RAYA">Masjid Raya</option>
+            <option value="MASJID AGUNG">Masjid Agung</option>
+            <option value="MASJID BESAR">Masjid Besar</option>
+            <option value="MASJID JAMI">Masjid Jami</option>
+            <option value="MASJID DI TEMPAT PUBLIK">Masjid di Tempat Publik</option>
+          </select>
+          <select id="daftar-filter-kecamatan" onchange="filterDaftar()" class="select-input"><option value="semua">Semua Kecamatan</option></select>
+        </div>
+        <div class="table-wrapper">
+          <table class="daftar-table">
+            <thead><tr><th>No</th><th>Nama Masjid</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th><th>Aksi</th></tr></thead>
+            <tbody id="daftar-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+<!-- ===== PROFIL ===== -->
+    <section id="section-profil" class="section">
+      <div class="profil-page">
+
+        <!-- HERO -->
+        <div class="profil-hero">
+          <div class="profil-hero-content">
+            <div class="profil-foto-wrap">
+              <img src="assets/foto-profil.jpg" alt="Aisyah Ananda Putri" class="profil-foto"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="profil-foto-fallback"><i class="fas fa-user-graduate"></i></div>
+            </div>
+            <div class="profil-hero-info">
+              <div class="profil-badge-univ"><i class="fas fa-university"></i> FKIP Universitas Lampung</div>
+              <h1 class="profil-nama-hero">Aisyah Ananda Putri</h1>
+              <p class="profil-npm-hero">NPM: 2313034011 &nbsp;·&nbsp; Pendidikan Geografi &nbsp;·&nbsp; 2023</p>
+              <div class="profil-sosmed">
+                <a href="mailto:email@student.unila.ac.id" class="profil-sosmed-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://github.com/aisyaadnana-svg" target="_blank" class="profil-sosmed-btn"><i class="fab fa-github"></i> GitHub</a>
+                <span class="profil-sosmed-btn"><i class="fas fa-map-marker-alt"></i> Bandar Lampung</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KONTEN SCROLLABLE -->
+        <div class="profil-scroll-body">
+
+          <!-- BARIS 1: Tentang + Sumber Data -->
+          <div class="profil-row">
+
+            <!-- Tentang SIGMA -->
+            <div class="profil-card-new profil-col-wide">
+              <div class="pcard-header"><i class="fas fa-mosque"></i> Tentang SIGMA</div>
+              <p class="pcard-text">
+                <strong>SIGMA</strong> (Sistem Informasi Geografis Masjid Kota Bandar Lampung) adalah
+                WebGIS yang dikembangkan sebagai bagian dari penelitian skripsi di Program Studi
+                Pendidikan Geografi FKIP Universitas Lampung. Platform ini memetakan persebaran
+                lokasi masjid secara digital, interaktif, dan mudah diakses masyarakat.
+              </p>
+              <div class="pcard-divider"></div>
+              <div class="pcard-header" style="margin-top:0;border:none;padding-bottom:8px"><i class="fas fa-bullseye"></i> Tujuan</div>
+              <ul class="pcard-list">
+                <li><i class="fas fa-check-circle"></i> Memetakan 25 masjid di Kota Bandar Lampung</li>
+                <li><i class="fas fa-check-circle"></i> Memudahkan masyarakat mencari masjid terdekat</li>
+                <li><i class="fas fa-check-circle"></i> Menyajikan data geospasial masjid berbasis web</li>
+                <li><i class="fas fa-check-circle"></i> Sebagai implementasi WebGIS dalam Pendidikan Geografi</li>
+              </ul>
+              <div class="pcard-divider"></div>
+              <div class="pcard-header" style="margin-top:0;border:none;padding-bottom:8px"><i class="fas fa-map-marked-alt"></i> Cakupan Wilayah</div>
+              <ul class="pcard-list">
+                <li><i class="fas fa-map-pin"></i> Kota Bandar Lampung, Provinsi Lampung</li>
+                <li><i class="fas fa-map-pin"></i> 14 Kecamatan terpetakan</li>
+                <li><i class="fas fa-map-pin"></i> 25 titik lokasi masjid</li>
+                <li><i class="fas fa-map-pin"></i> Koordinat: ±105.1°–105.4° BT, ±5.3°–5.5° LS</li>
+              </ul>
+            </div>
+
+            <!-- Sumber Data -->
+            <div class="profil-card-new profil-col-narrow">
+              <div class="pcard-header"><i class="fas fa-database"></i> Sumber Data</div>
+              <div class="sumber-list">
+
+                <div class="sumber-item">
+                  <div class="sumber-icon" style="background:linear-gradient(135deg,#10b981,#059669)"><i class="fas fa-mosque"></i></div>
+                  <div class="sumber-info">
+                    <div class="sumber-nama">Data Primer – Survei Lapangan</div>
+                    <div class="sumber-desc">Koordinat, nama, alamat, jenis, dan tahun berdiri masjid hasil survei lapangan di Kota Bandar Lampung, 2025–2026.</div>
+                    <span class="sumber-badge">Primer</span>
+                  </div>
+                </div>
+
+                <div class="sumber-item">
+                  <div class="sumber-icon" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)"><i class="fas fa-map-marked-alt"></i></div>
+                  <div class="sumber-info">
+                    <div class="sumber-nama">OpenStreetMap (OSM)</div>
+                    <div class="sumber-desc">Basemap peta jalan dan wilayah. Lisensi ODbL.</div>
+                    <a href="https://www.openstreetmap.org" target="_blank" class="sumber-link">openstreetmap.org →</a>
+                    <span class="sumber-badge sekunder">Sekunder</span>
+                  </div>
+                </div>
+
+                <div class="sumber-item">
+                  <div class="sumber-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)"><i class="fas fa-satellite"></i></div>
+                  <div class="sumber-info">
+                    <div class="sumber-nama">Esri World Imagery</div>
+                    <div class="sumber-desc">Citra satelit resolusi tinggi sebagai basemap alternatif.</div>
+                    <a href="https://www.arcgis.com" target="_blank" class="sumber-link">arcgis.com →</a>
+                    <span class="sumber-badge sekunder">Sekunder</span>
+                  </div>
+                </div>
+
+                <div class="sumber-item">
+                  <div class="sumber-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)"><i class="fas fa-clock"></i></div>
+                  <div class="sumber-info">
+                    <div class="sumber-nama">Aladhan Prayer Times API</div>
+                    <div class="sumber-desc">Jadwal sholat realtime, metode Kemenag RI.</div>
+                    <a href="https://aladhan.com/prayer-times-api" target="_blank" class="sumber-link">aladhan.com →</a>
+                    <span class="sumber-badge sekunder">API</span>
+                  </div>
+                </div>
+
+                <div class="sumber-item">
+                  <div class="sumber-icon" style="background:linear-gradient(135deg,#e74c3c,#c0392b)"><i class="fas fa-building"></i></div>
+                  <div class="sumber-info">
+                    <div class="sumber-nama">BPS Kota Bandar Lampung</div>
+                    <div class="sumber-desc">Data administrasi wilayah kecamatan.</div>
+                    <a href="https://bandarlampungkota.bps.go.id" target="_blank" class="sumber-link">bps.go.id →</a>
+                    <span class="sumber-badge sekunder">Sekunder</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- BARIS 2: Teknologi + Metadata ringkas -->
+          <div class="profil-row">
+
+            <!-- Teknologi -->
+            <div class="profil-card-new">
+              <div class="pcard-header"><i class="fas fa-code"></i> Teknologi yang Digunakan</div>
+              <div class="tech-big-grid">
+                <div class="tech-big-item"><i class="fab fa-html5" style="color:#e34f26"></i><div class="tbi-info"><span class="tbi-nama">HTML5</span><span class="tbi-desc">Struktur halaman web</span></div></div>
+                <div class="tech-big-item"><i class="fab fa-css3-alt" style="color:#1572b6"></i><div class="tbi-info"><span class="tbi-nama">CSS3</span><span class="tbi-desc">Styling dan animasi</span></div></div>
+                <div class="tech-big-item"><i class="fab fa-js" style="color:#f0b429"></i><div class="tbi-info"><span class="tbi-nama">JavaScript ES6+</span><span class="tbi-desc">Logika interaktif</span></div></div>
+                <div class="tech-big-item"><i class="fas fa-map" style="color:#3b82f6"></i><div class="tbi-info"><span class="tbi-nama">Leaflet.js v1.9.4</span><span class="tbi-desc">Library peta interaktif</span></div></div>
+                <div class="tech-big-item"><i class="fas fa-database" style="color:#10b981"></i><div class="tbi-info"><span class="tbi-nama">GeoJSON</span><span class="tbi-desc">Format data geospasial</span></div></div>
+                <div class="tech-big-item"><i class="fab fa-github" style="color:#1e293b"></i><div class="tbi-info"><span class="tbi-nama">GitHub Pages</span><span class="tbi-desc">Hosting gratis</span></div></div>
+              </div>
+            </div>
+
+            <!-- Metadata -->
+            <div class="profil-card-new">
+              <div class="pcard-header"><i class="fas fa-table"></i> Metadata Dataset</div>
+              <div class="metadata-table-wrap">
+                <table class="metadata-table">
+                  <tbody>
+                    <tr><td>Judul</td><td>Persebaran Lokasi Masjid Kota Bandar Lampung</td></tr>
+                    <tr><td>Pembuat</td><td>Aisyah Ananda Putri – NPM 2313034011</td></tr>
+                    <tr><td>Institusi</td><td>Pendidikan Geografi, FKIP Universitas Lampung</td></tr>
+                    <tr><td>Tahun</td><td>2025 – 2026</td></tr>
+                    <tr><td>Format</td><td>GeoJSON (WGS84 / EPSG:4326)</td></tr>
+                    <tr><td>Jumlah Fitur</td><td>25 titik lokasi masjid</td></tr>
+                    <tr><td>Sistem Koordinat</td><td>WGS84 – Latitude/Longitude</td></tr>
+                    <tr><td>Bounding Box</td><td>105.17°–105.37° BT | 5.32°–5.47° LS</td></tr>
+                    <tr><td>Atribut</td><td>nama, jenis, kecamatan, alamat, tahun_berdiri, koordinat, foto</td></tr>
+                    <tr><td>Metode</td><td>Survei lapangan, digitasi, verifikasi GPS</td></tr>
+                    <tr><td>Bahasa</td><td>Indonesia</td></tr>
+                    <tr><td>Pembaruan</td><td>Juni 2026</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+        </div><!-- /profil-scroll-body -->
+
+        <!-- FOOTER -->
+        <footer class="sigma-footer">
+          <div class="footer-inner">
+            <div class="footer-brand">
+              <div class="footer-logo"><i class="fas fa-mosque"></i></div>
+              <div>
+                <div class="footer-sigma">SIGMA</div>
+                <div class="footer-sub">Sistem Informasi Geografis Masjid</div>
+              </div>
+            </div>
+            <div class="footer-mid">
+              <span><i class="fas fa-map-marker-alt"></i> Kota Bandar Lampung, Lampung</span>
+              <span><i class="fas fa-graduation-cap"></i> Pendidikan Geografi – FKIP Unila</span>
+              <span><i class="fas fa-calendar"></i> © 2026 Aisyah Ananda Putri</span>
+            </div>
+            <div class="footer-right">
+              <a href="https://github.com/aisyaadnana-svg" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="mailto:email@student.unila.ac.id"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </footer>
+
+      </div><!-- /profil-page -->
+    </section>
+
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/tour.js"></script>
+</body>
+</html>
